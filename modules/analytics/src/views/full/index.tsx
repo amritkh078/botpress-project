@@ -460,6 +460,19 @@ const Analytics: FC<any> = ({ bp }) => {
     )
   }
 
+  const renderIntents = () => {
+    return (
+      <div className={cx(style.metricsContainer, style.fullWidth)}>
+        <ItemsList
+          name={lang.tr('module.analytics.mostUsedIntents')}
+          items={getTopItems('msg_nlu_intent', 'nlu')}
+          itemLimit={5}
+          className={cx(style.genericMetric, style.threeQuarter, style.list)}
+        />
+      </div>
+    )
+  }
+
   const renderDeletedQna = (id: string) =>
     `[${lang.tr('module.analytics.deletedQna')}, ID: ${id.replace('__qna__', '')}]`
 
@@ -745,6 +758,10 @@ const Analytics: FC<any> = ({ bp }) => {
           <div className={style.section}>
             <h2>{lang.tr('module.analytics.interactions')}</h2>
             {renderInteractions()}
+          </div>
+          <div className={style.section}>
+            <h2>{lang.tr('module.analytics.intents')}</h2>
+            {renderIntents()}
           </div>
           <div className={style.section}>
             <h2>{lang.tr('module.analytics.handlingAndUnderstanding')}</h2>
