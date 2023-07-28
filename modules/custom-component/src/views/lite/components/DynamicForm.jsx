@@ -211,7 +211,7 @@ export const DynamicForm = props => {
         </>
       )
     } else {
-      return <p>Form submission successful!</p>
+      return <p>Form submission successful! We will be back to you soon.</p>
     }
   }
 
